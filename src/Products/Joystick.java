@@ -5,7 +5,7 @@ public class Joystick extends Product {
     private String platform;
     // True / False
     private boolean vibration;
-    // USB / Bluetooth
+    // USB / Bluetooth / Both
     private String connection;
 
     public Joystick(String name, double price, int stock, String platform, boolean vibration, String connection) {

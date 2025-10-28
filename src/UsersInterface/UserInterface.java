@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static Products.ProductService.*;
 import static Orders.OrderService.*;
-import static Validators.Validator.optionValidator;
+import static Validators.Validator.*;
 
 public class UserInterface {
     /**
@@ -44,6 +44,7 @@ public class UserInterface {
      */
     public static void showProductMenu(Scanner sc, String title, String[] options, int maxOptions) {
         boolean inProductMenu = true;
+        Scanner scProduct = new Scanner(System.in);
 
         showMenu(title, options);
         int optionSelected = optionValidator(sc, maxOptions);
@@ -55,6 +56,23 @@ public class UserInterface {
                     System.out.println("Returning to Main Menu...");
                     break;
                 case 1:
+                    String name;
+                    double price;
+                    int stock;
+
+                    System.out.println("Creating a new product...");
+                    do {
+                        System.out.print("Enter the product name: ");
+                        name = scProduct.nextLine().trim().toUpperCase();
+                        if (!isValidLettersNumbersDash(name)) {
+                            System.out.println("Error: The name must contain only letters, numbers, spaces, and hyphens (-) and cannot be empty. Please try again.");
+                        }
+
+                    } while (!isValidLettersNumbersDash(name));
+                    System.out.print("Enter the product price: ");
+                   price = scProduct.nextDouble();
+                    System.out.print("Enter the product stock: ");
+                    stock = scProduct.nextInt();
                     createProduct();
                     break;
                 case 2:

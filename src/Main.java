@@ -1,6 +1,10 @@
+import Orders.Order;
+import Products.Product;
+
 import static UsersInterface.UserInterface.*;
 import static Validators.Validator.optionValidator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -13,6 +17,9 @@ public class Main {
 
     public static final String ORDER_MENU_TITLE = "ORDER MANAGEMENT SYSTEM";
     public static final String[] ORDER_MENU_OPTIONS = { "CREATE ORDER",  "LIST ORDERS" };
+
+    public static final ArrayList<Product> products = new ArrayList<>();
+    public static final ArrayList<Order> orders = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -41,7 +48,5 @@ public class Main {
                     System.out.println("Invalid choice. Try again.");
             }
         }
-
-
     }
 }
